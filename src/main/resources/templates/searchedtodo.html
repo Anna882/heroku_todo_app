@@ -7,14 +7,14 @@
 </head>
 <body>
 <div class="container" style="margin-top: 20%">
-    <div class="col-md-12" align="center" th:object="${todo}">
+    <div class="col-md-12" align="center">
         <h2>
             <table class="table table-striped">
                 <th class="col-md-1">ID</th>
                 <th class="col-md-3">ACTION</th>
                 <th class="col-md-1">DONE</th>
                 <th class="col-md-1">URGENT</th>
-                <tr>
+                <tr th:each="todo : ${result}">
                     <td class="col-md-1" th:text="${todo.id}"/>
                     <td class="col-md-3" th:text="${todo.title}"/>
                     <td class="col-md-1"><span th:class="${todo.done} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>

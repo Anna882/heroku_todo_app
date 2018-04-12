@@ -54,9 +54,9 @@ public class TodoController {
   }
 
   @GetMapping(value = "/search")
-  public String search(@RequestParam(name = "search") String title, Model model) {
-    if (todoRepository.findTodoByTitle(title) != null) {
-      model.addAttribute("todo",todoRepository.findTodoByTitle(title));
+  public String search(@RequestParam(name = "search") String search, Model model) {
+    if (todoRepository.findTodoByTitle(search) != null) {
+      model.addAttribute("result",todoRepository.findTodoByTitle(search));
       return "searchedtodo";
     }
     return "redirect:/todo/list";
