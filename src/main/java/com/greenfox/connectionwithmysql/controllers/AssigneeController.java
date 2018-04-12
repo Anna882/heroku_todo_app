@@ -47,7 +47,7 @@ public class AssigneeController {
   @PostMapping(value = "/{id}/update")
   public String saveUpdated(@ModelAttribute Assignee assignee) {
     assigneeRepository.save(assignee);
-    return "redirect:/todo/list";
+    return "redirect:/assignee/list";
   }
 
   @GetMapping(value = "/search")

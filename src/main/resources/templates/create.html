@@ -18,8 +18,9 @@
         </div>
         <div class="col-md-2">
         <label for="selectassignee">Select assignee</label>
-        <select class="form-control" id="selectassignee" th:each="a : ${assignees}">
-            <option th:text="${a.name}" th:field="${a}"/>
+        <select class="form-control" id="selectassignee" th:field="*{assignees}">
+            <option th:each="a : ${assignees}"
+            />
         </select>
         </div>
         <div class="col-md-2">

@@ -11,6 +11,6 @@ public interface AssigneeRepository extends CrudRepository<Assignee, Long>{
 
   List<Assignee> findAllByEmailNotNullOrderByName();
 
-  @Query("select a from Assignee a where LOWER(a.name) like %:search%")
-  List<Assignee> findAssigneesByName(@Param("search") String search);
+  @Query("select a from Assignee a where LOWER(a.name) like :search")
+  Assignee findAssigneesByName(@Param("search") String search);
 }
