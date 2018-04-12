@@ -56,6 +56,6 @@ public class AssigneeController {
       model.addAttribute("result",assigneeRepository.findAssigneesByName(search.toLowerCase()));
       return "searchedtodo";
     }
-    return "redirect:/todo/list";
+    return "redirect:/assignee/list";
   }
 }

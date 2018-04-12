@@ -37,8 +37,8 @@
             <!--<th class="col-md-1">DONE</th>-->
             <!--<th class="col-md-1">URGENT</th>-->
             <tr th:each="a : ${assignees}">
-                <td class="col-md-1" th:field="${a.name}"/>
-                <td class="col-md-3" th:field="${a.email}"/>
+                <td class="col-md-1" th:text="${a.name}"/>
+                <td class="col-md-3" th:text="${a.email}"/>
                 <td class="col-md-1"><a th:href="@{'/assignee/'+ ${a.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
                 <td class="col-md-1"><a th:href="@{'/assignee/' + ${a.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
             </tr>
