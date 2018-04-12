@@ -31,5 +31,5 @@ dependencies {
 	compile group: 'org.webjars.bower', name: 'jquery', version: '3.2.1'
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile'org.postgresql:postgresql:42.2.2.jre7'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
