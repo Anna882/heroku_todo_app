@@ -1,11 +1,9 @@
 package com.greenfox.connectionwithmysql.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "todos")
 public class Todo {
 
   @Id
@@ -14,6 +12,18 @@ public class Todo {
   private String title;
   private boolean urgent;
   private boolean done;
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
+
+  @ManyToOne
+
+  private Assignee assignee;
 
   public Long getId() {
     return id;

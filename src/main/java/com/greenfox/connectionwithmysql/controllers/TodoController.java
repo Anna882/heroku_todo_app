@@ -1,6 +1,7 @@
 package com.greenfox.connectionwithmysql.controllers;
 
 import com.greenfox.connectionwithmysql.models.Todo;
+import com.greenfox.connectionwithmysql.repository.AssigneeRepository;
 import com.greenfox.connectionwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,9 @@ public class TodoController {
 
   @Autowired
   private TodoRepository todoRepository;
+
+  @Autowired
+  private AssigneeRepository assigneeRepository;
 
   @GetMapping(value = {"/", "/list"})
   public String list(@RequestParam(value = "isActive", required = false) boolean filterIfActive, Model model){
@@ -44,6 +48,7 @@ public class TodoController {
   @GetMapping(value = "/{id}/update")
   public String update(@PathVariable String id, Model model) {
     model.addAttribute("todo", todoRepository.findById(Long.valueOf(id)).get());
+    model.addAttribute("assignees", assigneeRepository.findAll());
     return "update";
   }
 

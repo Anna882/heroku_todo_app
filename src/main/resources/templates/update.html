@@ -17,7 +17,16 @@
     <label for="done">Done</label>
         <input type="checkbox" th:field="*{urgent}" th:checked="*{urgent}" id="urgent">
     <label for="urgent">Urgent</label>
-
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            Assignee
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" th:each="a : ${assignees}">
+            <li th:field="${a.name}" th:text="${a.name}"></li>
+        </ul>
+    </div>
             <input type="submit" value="Edit" class="btn btn-warning btn-lg">
 </h2>
     </form>
