@@ -14,6 +14,6 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   List<Todo> findAllByTitleNotNullOrderById();
 
-  @Query("select all from Todo where LOWER(Todo.title) = LOWER ('%?#{#search}%')")
+  @Query("select t from Todo t where LOWER(Todo.title) like %:search%")
   List<Todo> findTodoByTitle(@Param("search") String search);
 }
