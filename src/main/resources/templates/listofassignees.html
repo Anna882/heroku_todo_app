@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12" align="center">
                 <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline" action="#" th:action="@{/assignee/search}">
+                    <form class="form-inline" action="#" th:action="@{/assignee/search}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                name="search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
@@ -24,7 +24,7 @@
                         </button>
                     </form>
                 </nav>
-                <form action="#" th:action="@{/assignee/create}">
+                <form action="#" th:action="@{/assignee/create}" method="get">
                     <button type="submit" class="btn btn-warning">Add new assignee</button>
                     <div class="row"><br></div>
                 </form>
@@ -39,8 +39,8 @@
             <tr th:each="a : ${assignees}">
                 <td class="col-md-1" th:field="${a.name}"/>
                 <td class="col-md-3" th:field="${a.email}"/>
-                <td class="col-md-1"><a th:href="@{'/todo/'+ ${a.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
-                <td class="col-md-1"><a th:href="@{'/todo/' + ${a.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
+                <td class="col-md-1"><a th:href="@{'/assignee/'+ ${a.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
+                <td class="col-md-1"><a th:href="@{'/assignee/' + ${a.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
             </tr>
         </table>
     </h3>
