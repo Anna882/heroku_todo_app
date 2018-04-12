@@ -23,6 +23,9 @@
                     <td class="col-md-1"><a th:href="@{'/todo/' + ${todo.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
                 </tr>
             </table>
+            <div class="col-md-12" align="center">
+            <a th:href="@{/todo}" class="btn btn-danger" role="button">Back to the list</a>
+            </div>
         </h2>
         </form>
     </div>
