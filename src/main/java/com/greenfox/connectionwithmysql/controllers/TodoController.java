@@ -29,7 +29,8 @@ public class TodoController {
   }
 
   @GetMapping(value = "/create")
-  public String createNew() {
+  public String createNew(Model model) {
+    model.addAttribute("assignees", assigneeRepository.findAll());
     return "create";
   }
 
