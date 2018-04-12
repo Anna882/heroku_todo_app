@@ -17,17 +17,13 @@
         <input type="text" class="form-control" style="width: 100%" name="text" id="text"/>
         </div>
         <div class="col-md-2">
-        <input type="submit" value="Create" class="btn btn-warning btn-lg">
+        <label for="selectassignee">Select assignee</label>
+        <select class="form-control" id="selectassignee" th:each="a : ${assignees}">
+            <option th:text="${a.name}" th:field="${a}"/>
+        </select>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="true">
-                Assignee
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" th:each="a : ${assignees}">
-                <li th:field="${a.name}" th:text="${a.name}"></li>
-            </ul>
+        <div class="col-md-2">
+        <input type="submit" value="Create" class="btn btn-warning btn-lg">
         </div>
     </h2>
 </form>

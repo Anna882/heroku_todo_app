@@ -1,5 +1,6 @@
 package com.greenfox.connectionwithmysql.controllers;
 
+import com.greenfox.connectionwithmysql.models.Assignee;
 import com.greenfox.connectionwithmysql.models.Todo;
 import com.greenfox.connectionwithmysql.repository.AssigneeRepository;
 import com.greenfox.connectionwithmysql.repository.TodoRepository;
@@ -35,7 +36,7 @@ public class TodoController {
   }
 
   @PostMapping(value = "/create")
-  public String saveNew(@ModelAttribute(name = "text") String text) {
+  public String saveNew(@ModelAttribute(name = "text") String text, Assignee assignee) {
     todoRepository.save(new Todo(text));
     return "redirect:/todo/list";
   }

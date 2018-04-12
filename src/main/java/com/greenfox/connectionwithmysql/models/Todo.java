@@ -13,6 +13,10 @@ public class Todo {
   private boolean urgent;
   private boolean done;
 
+  @ManyToOne
+  @JoinColumn
+  private Assignee assignee;
+
   public Assignee getAssignee() {
     return assignee;
   }
@@ -21,9 +25,6 @@ public class Todo {
     this.assignee = assignee;
   }
 
-  @ManyToOne
-
-  private Assignee assignee;
 
   public Long getId() {
     return id;
