@@ -17,9 +17,9 @@ public class TodoController {
   @GetMapping(value = {"/", "/list"})
   public String list(@RequestParam(value = "isActive", required = false) boolean filterIfActive, Model model){
     if (filterIfActive) {
-      model.addAttribute("todos", todoRepository.findAllByDone(filterIfActive));
+      model.addAttribute("todos", todoRepository.findAllByDoneOrderById(filterIfActive));
     } else {
-      model.addAttribute("todos", todoRepository.findAll());
+      model.addAttribute("todos", todoRepository.findAllByTitleNotNullOrderById());
     }
     return "todolist";
   }
@@ -43,15 +43,22 @@ public class TodoController {
 
   @GetMapping(value = "/{id}/update")
   public String update(@PathVariable String id, Model model) {
-//    model.addAttribute("todo", todoRepository.findTodoById(Long.valueOf(id)));
     model.addAttribute("todo", todoRepository.findById(Long.valueOf(id)).get());
-
     return "update";
   }
 
   @PostMapping(value = "/{id}/update")
   public String saveUpdated(@ModelAttribute Todo todo) {
     todoRepository.save(todo);
+    return "redirect:/todo/list";
+  }
+
+  @GetMapping(value = "/search")
+  public String search(@RequestParam(name = "search") String title, Model model) {
+    if (todoRepository.findTodoByTitle(title) != null) {
+      model.addAttribute("todo",todoRepository.findTodoByTitle(title));
+      return "searchedtodo";
+    }
     return "redirect:/todo/list";
   }
 }
