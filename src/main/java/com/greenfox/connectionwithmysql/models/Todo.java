@@ -42,6 +42,7 @@ public class Todo {
   }
 
   public void setTitle(String title) {
+    createdAt = new java.util.Date();
     this.title = title;
   }
 
@@ -70,12 +71,11 @@ public class Todo {
   }
 
   public Todo(String title){
-
     this.title = title;
-    }
+
+  }
 
   public Todo(){
-    this.createdAt = new java.util.Date();
 
   }
 }
