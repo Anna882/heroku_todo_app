@@ -6,47 +6,49 @@
             "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <meta charset="utf-8" />
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12" align="center">
-            <h1 class="text-uppercase">Assignees:</h1>
-        </div>
-    </div>
-    <h3>
+    <div class="container">
         <div class="row">
             <div class="col-md-12" align="center">
-                <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline" action="#" th:action="@{/assignee/search}" method="get">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                               name="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                    </form>
-                </nav>
-                <form action="#" th:action="@{/assignee/create}" method="get">
-                    <button type="submit" class="btn btn-warning">Add new assignee</button>
-                    <div class="row"><br></div>
-                </form>
+                <h1 class="text-uppercase">Assignees:</h1>
             </div>
         </div>
-        <div class="col-md-2"></div>
-        <table class="table table-striped">
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <!--<th class="col-md-1">DONE</th>-->
-            <!--<th class="col-md-1">URGENT</th>-->
-            <tr th:each="a : ${assignees}">
-                <td class="col-md-1" th:text="${a.name}"/>
-                <td class="col-md-3" th:text="${a.email}"/>
-                <td class="col-md-1"><a th:href="@{'/assignee/'+ ${a.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
-                <td class="col-md-1"><a th:href="@{'/assignee/' + ${a.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
-            </tr>
-        </table>
-    </h3>
+        <h3>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline" action="#" th:action="@{/assignee/search}" method="get">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                               name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                </span>
+                            </button>
+                        </form>
+                    </nav>
+                    <form action="#" th:action="@{/assignee/create}" method="get">
+                        <button type="submit" class="btn btn-warning">Add new assignee
+                        </button>
+                        <div class="row"><br></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <table class="table table-striped">
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <tr th:each="a : ${assignees}">
+                    <td class="col-md-1" th:text="${a.name}"/>
+                    <td class="col-md-3" th:text="${a.email}"/>
+                    <td class="col-md-1"><a th:href="@{'/assignee/'+ ${a.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
+                    <td class="col-md-1"><a th:href="@{'/assignee/' + ${a.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
+                </tr>
+            </table>
+        </h3>
     <div class="col-md-2"></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=
-        "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></body>
+        "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
 </html>

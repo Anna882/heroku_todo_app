@@ -3,23 +3,24 @@
 <head>
     <title>Update assignee</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity=
-            "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <meta charset="utf-8" />
+            "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8" />
 </head>
 <body>
-<div class="container" style="margin-top: 20%">
-    <div class="col-md-12" align="center">
-        <form class="form-inline" method="post" action="#" th:action="@{'/assignee/' + ${assignee.id} + '/update'}"
-              th:object="${assignee}" >
-            <h2>
-                <label for="text">Edit Assignee</label>
-                <input type="text" class="form-control" id="text" th:field="*{name}" style="width: 50%">
-                <input type="submit" value="Edit" class="btn btn-warning btn-lg">
-            </h2>
-        </form>
+    <div class="container" style="margin-top: 20%">
+        <div class="col-md-12" align="center">
+            <form class="form-inline" method="post" action="#" th:action="@{'/assignee/' + ${assignee.getId()} + '/update'}"
+                    th:object="${assignee}" >
+                <h2>
+                    <label for="text">Edit Assignee</label>
+                    <input type="text" class="form-control" id="text" th:field="*{name}" style="width: 50%">
+                    <input type="submit" value="Edit" class="btn btn-warning btn-lg">
+                </h2>
+            </form>
+        </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=
         "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

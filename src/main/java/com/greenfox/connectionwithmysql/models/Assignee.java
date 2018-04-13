@@ -9,7 +9,7 @@ public class Assignee {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  private Long assigneeId;
   private String name;
   private String email;
   @OneToMany(mappedBy = "assignee")
@@ -24,11 +24,11 @@ public class Assignee {
   }
 
   public Long getId() {
-    return id;
+    return assigneeId;
   }
 
   public void setId(Long id) {
-    this.id = id;
+    this.assigneeId = id;
   }
 
   public String getEmail() {

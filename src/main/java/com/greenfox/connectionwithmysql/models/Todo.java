@@ -17,7 +17,7 @@ public class Todo {
   private java.util.Date createdAt;
 
   @ManyToOne
-  @JoinColumn(name = "id")
+  @JoinColumn(name = "assigneeId")
   private Assignee assignee;
 
   public Assignee getAssignee() {
