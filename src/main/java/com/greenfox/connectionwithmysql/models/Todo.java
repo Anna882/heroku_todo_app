@@ -69,13 +69,13 @@ public class Todo {
     this.createdAt = createdAt;
   }
 
-  public Todo(String title, Date createdAt){
+  public Todo(String title){
 
     this.title = title;
-
-    this.createdAt = createdAt;
-  }
+    }
 
   public Todo(){
+    this.createdAt = new java.util.Date();
+
   }
 }
