@@ -55,8 +55,7 @@ public class TodoController {
   }
 
   @PostMapping(value = "/{id}/update")
-  public String saveUpdated(@ModelAttribute Todo todo, @RequestParam(name = "a_name") String name) {
-    todo.setAssignee(assigneeRepository.findAssigneesByName(name));
+  public String saveUpdated(@ModelAttribute Todo todo) {
     todoRepository.save(todo);
     return "redirect:/todo/list";
   }

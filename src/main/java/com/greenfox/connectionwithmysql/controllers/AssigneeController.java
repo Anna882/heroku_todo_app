@@ -2,6 +2,7 @@ package com.greenfox.connectionwithmysql.controllers;
 
 import com.greenfox.connectionwithmysql.models.Assignee;
 import com.greenfox.connectionwithmysql.repository.AssigneeRepository;
+import com.greenfox.connectionwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,9 @@ public class AssigneeController {
 
   @Autowired
   AssigneeRepository assigneeRepository;
+
+  @Autowired
+  TodoRepository todoRepository;
 
   @GetMapping(value = {"/", "/list"})
   public String list(Model model){
@@ -45,7 +49,7 @@ public class AssigneeController {
   }
 
   @PostMapping(value = "/{id}/update")
-  public String saveUpdated(@ModelAttribute Assignee assignee) {
+  public String saveUpdated(Assignee assignee) {
     assigneeRepository.save(assignee);
     return "redirect:/assignee/list";
   }
@@ -55,6 +59,15 @@ public class AssigneeController {
     if (assigneeRepository.findAssigneesByName(search.toLowerCase()) != null) {
       model.addAttribute("result",assigneeRepository.findAssigneesByName(search.toLowerCase()));
       return "searchedtodo";
+    }
+    return "redirect:/assignee/list";
+  }
+
+  @GetMapping(value = "/{id}/todos")
+  public String todoList(@PathVariable String id, Model model) {
+    if (todoRepository.findAllByAssignee(assigneeRepository.findById(Long.valueOf(id)).get()) != null) {
+      model.addAttribute("todos", todoRepository.findAllByAssignee(assigneeRepository.findById(Long.valueOf(id)).get()));
+      return "todolist";
     }
     return "redirect:/assignee/list";
   }

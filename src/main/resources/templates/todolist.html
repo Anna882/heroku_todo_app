@@ -27,36 +27,40 @@
                 </nav>
                 <a th:href="@{/todo/create}" class="btn btn-warning" role="button">Create new todo</a>
                 <a th:href="@{/assignee/list}" class="btn btn-warning" role="button">List of assignees</a>
-                <div class="row"><br>
-                </div>
             </div>
           </div>
-          <div class="col-md-1"></div>
-            <table class="table table-striped">
-            <th class="col-md-1">ID</th>
-            <th class="col-md-4">ACTION</th>
-            <th class="col-md-1">DONE</th>
-            <th class="col-md-1">URGENT</th>
-            <th class="col-md-1">ASSIGNEE</th>
-            <tr th:each="todo : ${todos}">
-                <td class="col-md-1" th:text="${todo.id}"/>
-                <td class="col-md-3" th:text="${todo.title}"/>
-                <td class="col-md-3" th:text="${todo.assignee.name}"/>
-                <td class="col-md-1">
-                    <span th:class="${todo.done} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>
-                <td class="col-md-1">
-                    <span th:class="${todo.urgent} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>
-                <td class="col-md-1">
-                    <a th:href="@{'/todo/'+ ${todo.id} + '/delete'}" class="btn btn-danger" role="button">delete</a> </td>
-                <td class="col-md-1">
-                    <a th:href="@{'/todo/' + ${todo.id} + '/update'}" class="btn btn-primary" role="button">update</a> </td>
-            </tr>
-            </table>
-        </h3>
-    <div class="col-md-1"></div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=
+          <div class="row"><br>
+            <div class="col-md-1"></div>
+                <table class="table table-striped">
+                    <th class="col-md-1">ID</th>
+                    <th class="col-md-4">ACTION</th>
+                    <th class="col-md-1">DONE</th>
+                    <th class="col-md-1">URGENT</th>
+                    <th class="col-md-1">ASSIGNEE</th>
+                    <tr th:each="todo : ${todos}">
+                        <td th:text="${todo.id}"/>
+                        <td th:text="${todo.title}"/>
+                        <td>
+                            <span th:class="${todo.done} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
+                            </span></td>
+                        <td>
+                        <span th:class="${todo.urgent} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
+                        </span></td>
+                        <td class="col-md-3" th:text="${todo.assignee.name}"/>
+                        <td>
+                            <a th:href="@{'/todo/'+ ${todo.id} + '/delete'}" class="btn btn-danger" role="button">delete</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/todo/' + ${todo.id} + '/update'}" class="btn btn-primary" role="button">update</a>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+      </h3>
+  </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=
         "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

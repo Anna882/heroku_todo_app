@@ -12,19 +12,16 @@
             <form class="form-inline" method="post" action="#" th:action="@{'/todo/' + ${todo.id} + '/update'}"
                   th:object="${todo}" >
                 <h2>
-                    <label for="text">Edit Todo</label>
-
+                        <label for="text">Edit Todo</label>
                     <input type="text" class="form-control" id="text" th:field="*{title}" style="width: 50%">
-                    <input type="checkbox" th:field="*{done}" th:checked="*{done}" id="done">
-                    <label for="done">Done</label>
-                    <input type="checkbox" th:field="*{urgent}" th:checked="*{urgent}" id="urgent">
-                    <label for="urgent">Urgent</label>
-                    <div class="col-md-2">
+                        <input type="checkbox" th:field="*{done}" th:checked="*{done}" id="done">
+                        <label for="done">Done</label>
+                        <input type="checkbox" th:field="*{urgent}" th:checked="*{urgent}" id="urgent">
+                        <label for="urgent">Urgent</label>
                         <label for="selectassignee">Select assignee</label>
                         <select class="form-control" id="selectassignee" th:field="*{assignee}" >
-                            <option th:each="a : ${assignees}" th:text="${a.name}" th:value="${a.id}"></option>
+                            <option th:each="a : ${assignees}" th:text="${a.name}" th:value="${a.id}"/>
                         </select>
-                    </div>
                     <input type="submit" value="Edit" class="btn btn-warning btn-lg">
                 </h2>
             </form>
