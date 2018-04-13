@@ -61,9 +61,18 @@ public class Todo {
     this.done = done;
   }
 
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
   public Todo(String title, Date createdAt){
 
     this.title = title;
+
     this.createdAt = createdAt;
   }
 
