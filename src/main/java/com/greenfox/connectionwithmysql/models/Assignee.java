@@ -12,7 +12,7 @@ public class Assignee {
   private Long assigneeId;
   private String name;
   private String email;
-  @OneToMany(mappedBy = "assignee")
+  @OneToMany(mappedBy = "assigneeId")
   private List<Todo> todos;
 
   public List<Todo> getTodos() {
