@@ -1,20 +1,23 @@
 package com.greenfox.connectionwithmysql.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "todos")
 public class Todo {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String title;
   private boolean urgent;
   private boolean done;
+  @Temporal(TemporalType.DATE)
+  private java.util.Date createdAt;
 
   @ManyToOne
-  @JoinColumn
+  @JoinColumn(name = "id")
   private Assignee assignee;
 
   public Assignee getAssignee() {
@@ -58,9 +61,10 @@ public class Todo {
     this.done = done;
   }
 
-  public Todo(String title){
+  public Todo(String title, Date createdAt){
 
     this.title = title;
+    this.createdAt = createdAt;
   }
 
   public Todo(){

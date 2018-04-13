@@ -21,7 +21,7 @@
         <label for="selectassignee">Select assignee</label>
         <select class="form-control" id="selectassignee" th:field="*{assignee}" >
             <option th:each="a : ${assignees}"
-            th:text="${a.name}"></option>
+            th:text="${a.name}" th:value="${a.id}"></option>
         </select>
     </div>
             <input type="submit" value="Edit" class="btn btn-warning btn-lg">

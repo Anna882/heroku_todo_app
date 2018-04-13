@@ -30,13 +30,14 @@ public class TodoController {
 
   @GetMapping(value = "/create")
   public String createNew(Model model) {
+    model.addAttribute("todo", new Todo());
     model.addAttribute("assignees", assigneeRepository.findAll());
     return "create";
   }
 
   @PostMapping(value = "/create")
-  public String saveNew(@ModelAttribute(name = "text") String text, @RequestParam(name = "a_name") String name) {
-    todoRepository.save(new Todo(text));
+  public String saveNew(Todo todo) {
+    todoRepository.save(todo);
     return "redirect:/todo/list";
   }
 
